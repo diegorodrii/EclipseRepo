@@ -1,0 +1,30 @@
+plugins{
+    id 'java'
+}
+
+group 'SeleniumJava'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 18
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    testImplementation group: 'junit', name:'junit', version:'4.12'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.1.2'
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '4.2.0'
+    testImplementation 'io.cucumber:cucumber-junit:4.2.0'
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version:'1.7.25'
+    // https://mvnrepository.com/artifact/com.aventstack/extentreports-cucumber4-adapter
+    implementation group: 'com.aventstack', name: 'extentreports-cucumber4-adapter', version: '1.0.7'
+ 
+
+
+}
+
+ test {
+     systemProperty "cucumberOptions", System.getProperty("cucumber.options")
+  }
